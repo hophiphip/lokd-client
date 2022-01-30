@@ -1,3 +1,10 @@
+/**
+ *  Set element attributes from provided dictionary.
+ *
+ * @param {Element} node
+ * @param {Object.<string, string>} attributes
+ * @returns {{update(*): void}}
+ */
 export function setAttributes(node, attributes) {
     const applyAttributes = () => {
         Object.entries(attributes).forEach(([k, v]) => {
@@ -17,21 +24,28 @@ export function setAttributes(node, attributes) {
             applyAttributes();
         }
     };
-  }
+}
 
+/**
+ *  Set element properties from provided dictionary.
+ *
+ * @param {Element} node
+ * @param {Object.<string, string>} properties
+ * @returns {{update(*): void}}
+ */
 export function setProperties(node, properties) {
-      const applyProperties = () => {
-          Object.entries(properties).forEach(([k, v]) => {
-              node[k] = v;
-          });
-      };
+    const applyProperties = () => {
+        Object.entries(properties).forEach(([k, v]) => {
+            node[k] = v;
+        });
+    };
 
-      applyProperties();
+    applyProperties();
 
-      return {
-          update(updatedProperties) {
-              properties = updatedProperties;
-              applyProperties();
-          }
-      };
+    return {
+        update(updatedProperties) {
+            properties = updatedProperties;
+            applyProperties();
+        }
+    };
 }

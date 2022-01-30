@@ -1,0 +1,8 @@
+/node_modules/
+/public/build/
+/.vscode/
+/.idea/
+
+NOTES.md
+
+.DS_Store

@@ -14,7 +14,12 @@
 	let dispatch = createEventDispatcher();
 
 	function handleClick() {
-		console.log(hidden);
+		if (!hidden) {
+			waitForElement('video').then((element) => {
+				document.querySelector('a-scene')?.appendChild(element);
+			});
+		}
+
 		hidden = !hidden;
 		dispatch('handleClick', hidden);
 	}
